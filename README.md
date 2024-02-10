@@ -90,24 +90,20 @@ Commands with documented information (enter help <topic>):
 ========================================
 
 EOF  help  quit
-(hbnb) 
-
-$
-
-$ cat test_help
-
-help
-
-$
-
-$ cat test_help | ./console.py
 
 (hbnb)
+
+(hbnb)
+
+(hbnb) quit
+
+$
 
 Documented commands (type help <topic>):
 ========================================
 
 EOF  help  quit
+
 
 (hbnb)
 
