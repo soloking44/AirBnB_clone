@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-this data sets the BaseModel class that will
-aid the base class to all the models."""
+defines the BaseModel class that
+serve as the base class for all our models."""
 
 from uuid import uuid4
 from datetime import datetime
@@ -9,11 +9,11 @@ import models
 
 
 class BaseModel:
-    """this is base class of all the classes"""
+    """class for all our classes"""
 
     def __init__(self, *args, **kwargs):
-        """initialize it to deserialize
-        a serialized class or setup a new"""
+        """constructor it either deserialize
+        a serialized class or initialize a new"""
 
         # initialize if nothing is passed
         if kwargs == {}:
@@ -38,7 +38,7 @@ class BaseModel:
                     '%Y-%m-%dT%H:%M:%S.%f')
 
     def __str__(self):
-        """replace str simulation of self"""
+        """override str representation of self"""
         fmt = "[{}] ({}) {}"
         return fmt.format(
                 type(self).__name__,
@@ -46,12 +46,12 @@ class BaseModel:
                 self.__dict__)
 
     def save(self):
-        """modifies last updated valu"""
+        """updates last updated variable"""
         self.updated_at = datetime.utcnow()
         models.storage.save()
 
     def to_dict(self):
-        """offerss a dictionary simulation of self"""
+        """Returns a dictionary representation of self"""
         temp = {**self.__dict__}
         temp['__class__'] = type(self).__name__
         temp['created_at'] = self.created_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
@@ -60,23 +60,23 @@ class BaseModel:
 
     @classmethod
     def all(cls):
-        """Recovers all present instances of cls"""
+        """Retrieve all current instances of cls"""
         return models.storage.find_all(cls.__name__)
 
     @classmethod
     def count(cls):
-        """fetch the number of all present instances of cls"""
+        """Get the number of all current instances of cls"""
         return len(models.storage.find_all(cls.__name__))
 
     @classmethod
-    def creates(cls, *args, **kwargs):
-        """generates an Instance"""
+    def create(cls, *args, **kwargs):
+        """Creates an Instance"""
         new = cls(*args, **kwargs)
         return new.id
 
     @classmethod
     def show(cls, instance_id):
-        """Recovers an instance"""
+        """Retrieve an instance"""
         return models.storage.find_by_id(
             cls.__name__,
             instance_id
@@ -84,7 +84,7 @@ class BaseModel:
 
     @classmethod
     def destroy(cls, instance_id):
-        """removes an instance"""
+        """Deletes an instance"""
         return models.storage.delete_by_id(
             cls.__name__,
             instance_id
@@ -92,7 +92,7 @@ class BaseModel:
 
     @classmethod
     def update(cls, instance_id, *args):
-        """modifies an instance
+        """Updates an instance
         if args has one elem and its a dict:
         it updates by key value
         else:
@@ -110,4 +110,3 @@ class BaseModel:
                 instance_id,
                 *arg
             )
-

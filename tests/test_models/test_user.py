@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""this is the outlines of tests models/user.py.
+"""unittests for models/user.py.
 
-test classes:
-    testuser_instantiation
-    testuser_save
-    testuser_to_dict
+Unittest classes:
+    TestUser_instantiation
+    TestUser_save
+    TestUser_to_dict
 """
 import os
 import models
@@ -15,7 +15,7 @@ from models.user import User
 
 
 class TestUser_instantiation(unittest.TestCase):
-    """this is the test for User class."""
+    """Unittests for testing instantiation of the User class."""
 
     def test_no_args_instantiates(self):
         self.assertEqual(User, type(User()))
@@ -91,7 +91,7 @@ class TestUser_instantiation(unittest.TestCase):
 
 
 class TestUser_save(unittest.TestCase):
-    """this is tests for save method."""
+    """Unittests for testing save method of the  class."""
 
     @classmethod
     def setUp(self):
@@ -142,7 +142,7 @@ class TestUser_save(unittest.TestCase):
 
 
 class TestUser_to_dict(unittest.TestCase):
-    """this is tests to_dict method of user."""
+    """Unittests for testing to_dict method of the User class."""
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(User().to_dict()))

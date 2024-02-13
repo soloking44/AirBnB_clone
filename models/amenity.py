@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-""" this choes the amenity class """
 
-import uuid
-from datetime import datetime
-from models import storage
+"""defines the Amenity Model
+inherits from the BaseModel
+"""
+
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """ this is the amenity """
-    name = ""
+    """Amenity Model"""
+
+    # Attributes
+    name: str = ""

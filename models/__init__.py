@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-this is __init__ dunder process for the models directory
+__init__ dunder method for the models directory
 """
 from models.engine.file_storage import FileStorage
 
