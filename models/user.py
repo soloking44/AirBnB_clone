@@ -1,14 +1,18 @@
 #!/usr/bin/python3
-""" this is the user """
 
-import uuid
+"""this data explains the UserModel class
+It receives via the BaseModel
+"""
+
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """ this is User class """
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    """this is the User Model"""
+
+    # Attributes
+    email: str = ""
+    password: str = ""
+    first_name: str = ""
+    last_name: str = ""
 
